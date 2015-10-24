@@ -101,9 +101,9 @@ function addActivityToMap(activity) {
 		symbol = 'place-of-worship';
         break;
     default:
-        theme = 'notification-orange';
-		color = '#D35400';
-		symbol = 'embassy';
+        theme = 'notification-yellow';
+		color = '#F39C12';
+		symbol = 'place-of-worship';
         break;
 	}
 
