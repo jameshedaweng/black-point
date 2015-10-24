@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project Space Gray</title>
+    <title>magicpoint.</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="http://goessner.net/download/prj/jsonxml/xml2json.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js'></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script type="text/javascript" src="assets/js/sync/activities.js"></script>
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css" />
@@ -31,9 +35,20 @@
             <div id="map">
             </div>
             <div id="actions">
+              <div id="slider-container">
+                <div id="slider">
+                </div>
+                <div id="slider-text">
+                  <span id="slider-text-left"> -12h </span>
+                  <span id="slider-text-right"> + 12h </span>
+                </div>
+                <span id="slider-label"></span>
+              </div>
             </div>
           </div>
           <div class="col-md-4 side-panel" id="notification-container">
+            <div id="current-time">
+            </div>
             <div id="notifications">
               <div class="notification notification-rose">
                 Lorem ipsum dolor sit amet, legimus corrumpit ex ius, viris eirmod meliore in sit, per et veri scribentur. Delenit vulputate adolescens ex vim
