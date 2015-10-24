@@ -3,17 +3,37 @@
 html, body{
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-family: 'Montserrat';
   background-color: $bgWhite;
   color: $textGray;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 @mixin notification-theme($themeColor, $bgColor){
   color: $themeColor;
   border-color: $themeColor;
   background-color: $bgColor;
+}
+
+.splash{
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  background: $bgWhite;
+  img{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    margin-top: -300px;
+    margin-left: -400px;
+    width: 800px;
+    height: 600px;
+  }
 }
 
 #navbar-main{
@@ -24,10 +44,14 @@ html, body{
   z-index: 1200;
   .navbar-header{
     .navbar-brand{
-      padding: 10px 15px;
+      padding: 5px 15px;
       line-height: 40px;
       font-size: 24px;
       font-weight: 200;
+      img{
+        width: auto;
+        height: 50px;
+      }
     }
   }
 }
@@ -96,7 +120,7 @@ html, body{
               &.ui-state-focus, &:hover{
                 outline: none;
                 -webkit-appearance: none;
-                background: $blueTheme;
+                background: linear-gradient($blueTheme, darken($blueTheme, 10%));
                 border-color: $blueTheme;
               }
             }
@@ -149,6 +173,7 @@ html, body{
         overflow: auto;
         padding: 100px 15px 215px 15px;
         -webkit-overflow-scrolling: touch;
+        -webkit-transform: translate3d(0, 0, 0);
         .notification{
           margin: 15px 0px 0px 0px;
           padding: 15px;
