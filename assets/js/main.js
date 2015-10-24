@@ -6,7 +6,7 @@ $(document).ready(function(){
   MP.sliderInit();
   MP.setDefaultDate();
   simulateDownloadActivities();
-  //simulateDownloadParkings();
+  simulateDownloadParkings();
   simulateTemperatures();
 });
 
@@ -45,7 +45,7 @@ MP.mapInit = function(){
 
 				            newText += newNotification;
 			        	} else {
-				    		console.log(prop.temperatures);
+			        		newText += generateTemperatureNotifications(prop.temperatures);
 			        	}
 		        	}
 	        	}
@@ -70,6 +70,7 @@ MP.sliderInit = function(){
         var handleIndex = $(ui.handle).data('index.uiSliderHandle');
         var label = "#slider-label";
         var time = moment().add(ui.value, 'minute').format("HH:mm");
+        MP.hour = moment().add(ui.value, 'minute').format("HH");
         $(label).html(time).position({
           my: 'center bottom',
           at: 'center top',
