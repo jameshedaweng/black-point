@@ -4,7 +4,7 @@ $(document).ready(function(){
   MP.loadSplash();
   MP.mapInit();
   MP.sliderInit();
-  //simulateDownloadActivities();
+  simulateDownloadActivities();
 });
 
 MP.loadSplash = function(){
@@ -18,6 +18,31 @@ MP.mapInit = function(){
   MP.map = L.mapbox.map('map', 'jameshedaweng.0b40c805')
     .setView([40.415363, -3.707398], 14);
   MP.map.scrollWheelZoom.disable();
+
+  MP.layers = [];
+
+  MP.map.on('move', function() {
+	    // Get the map bounds - the top-left and bottom-right locations.
+	    var bounds = MP.map.getBounds();
+
+	    var newText = '';
+
+	    $.each(MP.layers, function( index, value ) {
+		    value.eachLayer(function(layer) {
+		    	if (bounds.contains(layer.getLatLng())) {
+			    	//console.log(layer.feature);
+
+			    	var newNotification = '<div class="notification notification-rose">';
+			    	newNotification += layer.feature.properties.title;
+		            newNotification += '</div>';
+
+		            newText += newNotification;
+	        	}
+		    });
+		});
+
+	    $('#notifications').html(newText);
+	});
 };
 
 MP.sliderInit = function(){
