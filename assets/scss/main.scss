@@ -46,6 +46,7 @@ html, body{
         background-color: $bgLightGray;
         .leaflet-control-zoom{
           border-radius: 5px;
+          margin: 15px 0px 0px 15px;
           border-color: $lineGray;
           .leaflet-control-zoom-in, .leaflet-control-zoom-out{
             color: $textGray;
