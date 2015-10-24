@@ -33,8 +33,12 @@ MP.mapInit = function(){
 		    	if (bounds.contains(layer.getLatLng())) {
 			    	//console.log(layer.feature);
 
-			    	var newNotification = '<div class="notification notification-rose">';
-			    	newNotification += layer.feature.properties.title;
+			    	var prop = layer.feature.properties;
+
+			    	console.log(prop);
+
+			    	var newNotification = '<div class="notification ' + prop.theme + '">';
+			    	newNotification += prop.title;
 		            newNotification += '</div>';
 
 		            newText += newNotification;

@@ -73,6 +73,9 @@ function addActivityToMap(activity) {
 	//console.log('addActivityToMap');
 	//console.log(activity);
 
+	var theme = 'notification-orange';
+	var color = '#D35400';
+
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
 	    // for the full specification
@@ -88,10 +91,12 @@ function addActivityToMap(activity) {
 	    },
 	    properties: {
 	        title: activity.title,
+	        theme: theme,
+	        color: color,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'large',
-	        'marker-color': '#BE9A6B',
+	        'marker-color': color,
 	        'marker-symbol': 'star'
 	    }
 	}).addTo(MP.map));
