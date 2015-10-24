@@ -34,20 +34,28 @@ function parseActivities(data) {
 		$xml = $( xmlDoc ),
 		$entry = $xml.find( "entry" );
 
-	console.log($entry);
-
 	addActivitiesToMap($entry);
 }
 
 function addActivitiesToMap(activities) {
-	$.each(activities, function( index, value ) {
-		//addActivityToMap(value);
-	});
+	console.log('addActivitiesToMap');
+	console.log(activities);
+
+	activities.each(function(){
+        var $activity = $(this); 
+        var newActivity = {
+        	title: $activity.find("title").text(),
+        	lat: parseFloat($activity.find("lat").text()),
+        	lon: parseFloat($activity.find("long").text())
+        }
+
+        addActivityToMap(newActivity);
+    });
 }
 
 function addActivityToMap(activity) {
-	console.log('addActivityToMap');
-	console.log(activity);
+	//console.log('addActivityToMap');
+	//console.log(activity);
 
 	L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
@@ -58,18 +66,17 @@ function addActivityToMap(activity) {
 	        // coordinates here are in longitude, latitude order because
 	        // x, y is the standard for GeoJSON and many formats
 	        coordinates: [
-	          -3.707398,
-	          40.415363
+	          activity.lon,
+	          activity.lat
 	        ]
 	    },
 	    properties: {
-	        title: 'Peregrine Espresso',
-	        description: '1718 14th St NW, Washington, DC',
+	        title: activity.title,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'large',
 	        'marker-color': '#BE9A6B',
-	        'marker-symbol': 'cafe'
+	        'marker-symbol': 'star'
 	    }
 	}).addTo(MP.map);
 
