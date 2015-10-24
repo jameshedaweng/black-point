@@ -124,6 +124,7 @@ function addActivityToMap(activity) {
 	        title: activity.title,
 	        theme: theme,
 	        color: color,
+	        show: true,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'medium',
