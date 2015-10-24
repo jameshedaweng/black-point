@@ -41,7 +41,6 @@ function addActivitiesToMap(activities) {
 	console.log('addActivitiesToMap');
 	console.log(activities);
 
-	var cont = 0;
 	activities.each(function(){
         var $activity = $(this); 
         var newActivity = {
@@ -64,7 +63,7 @@ function addActivityToMap(activity) {
 	//console.log('addActivityToMap');
 	console.log(activity);
 
-	MP.layer = L.mapbox.featureLayer({
+	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
 	    // for the full specification
 	    type: 'Feature',
@@ -85,6 +84,6 @@ function addActivityToMap(activity) {
 	        'marker-color': '#BE9A6B',
 	        'marker-symbol': 'star'
 	    }
-	}).addTo(MP.map);
+	}).addTo(MP.map));
 }
 
