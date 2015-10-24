@@ -64,7 +64,7 @@ function addActivityToMap(activity) {
 	//console.log('addActivityToMap');
 	console.log(activity);
 
-	L.mapbox.featureLayer({
+	MP.layer = L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
 	    // for the full specification
 	    type: 'Feature',
