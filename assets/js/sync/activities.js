@@ -45,23 +45,33 @@ function addActivitiesToMap(activities) {
         var $activity = $(this); 
         var newActivity = {
         	title: $activity.find("title").text(),
+        	content: $activity.find("content").text(),
         	category: $activity.find("category").attr("term"),
         	lat: parseFloat($activity.find("lat").text()),
         	lon: parseFloat($activity.find("long").text())
         }
 
-        // Parse category
-        if (newActivity.category != undefined) {
-	        newActivity.category = newActivity.category.substr(newActivity.category.lastIndexOf("/")+1, newActivity.category.length);
+        var novPos = newActivity.title.indexOf(' de noviembre');
+        if (novPos == -1)
+        	novPos = newActivity.content.indexOf(' de noviembre');
+        var dicPos = newActivity.title.indexOf(' de diciembre');
+        if (dicPos == -1)
+        	dicPos = newActivity.content.indexOf(' de diciembre');
 
-	        addActivityToMap(newActivity);
-    	}
+        // Parse category
+        if (novPos != -1 || dicPos != -1) {
+	        if (newActivity.category != undefined) {
+		        newActivity.category = newActivity.category.substr(newActivity.category.lastIndexOf("/")+1, newActivity.category.length);
+
+		        addActivityToMap(newActivity);
+	    	}
+	    }
     });
 }
 
 function addActivityToMap(activity) {
 	//console.log('addActivityToMap');
-	console.log(activity);
+	//console.log(activity);
 
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
