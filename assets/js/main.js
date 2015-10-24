@@ -1,10 +1,17 @@
 var MP = [];
 
 $(document).ready(function(){
+  MP.loadSplash();
   MP.mapInit();
   MP.sliderInit();
   //simulateDownloadActivities();
 });
+
+MP.loadSplash = function(){
+  setTimeout(function(){
+    $(".splash").fadeOut();
+  }, 2000);
+};
 
 MP.mapInit = function(){
   L.mapbox.accessToken = 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ';
