@@ -38,7 +38,6 @@ MP.mapInit = function(){
 			    	var prop = layer.feature.properties;
 
 			    	if (prop.show) {
-
 			    		if (prop.temperatures === undefined) {
 					    	var newNotification = '<div class="notification ' + prop.theme + '">';
 					    	newNotification += prop.title;
