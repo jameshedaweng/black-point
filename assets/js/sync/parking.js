@@ -79,7 +79,7 @@ function addParkingToMap(parking) {
 	        show: false,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-	        'marker-size': 'large',
+	        'marker-size': 'small',
 	        'marker-color': color,
 	        'marker-symbol': 'car'
 	    }

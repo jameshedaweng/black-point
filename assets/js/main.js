@@ -6,7 +6,7 @@ $(document).ready(function(){
   MP.sliderInit();
   MP.setDefaultDate();
   simulateDownloadActivities();
-  //simulateDownloadParkings();
+  simulateDownloadParkings();
   simulateTemperatures();
 });
 
@@ -19,7 +19,7 @@ MP.loadSplash = function(){
 MP.mapInit = function(){
   L.mapbox.accessToken = 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ';
   MP.map = L.mapbox.map('map', 'jameshedaweng.0b40c805')
-    .setView([40.415363, -3.707398], 14);
+    .setView([40.416775, -3.703790], 14);
   MP.map.scrollWheelZoom.disable();
 
   MP.layers = [];
@@ -51,8 +51,14 @@ MP.mapInit = function(){
 	        	}
 		    });
 		});
-
-	    $('#notifications').html(newText);
+    $('.notification').fadeOut(200);
+    setTimeout(function(){
+      $('#notifications').html(newText);
+      setTimeout(function(){
+        $('.notification').fadeIn(200);
+      });
+    }, 200);
+    
 	});
 };
 

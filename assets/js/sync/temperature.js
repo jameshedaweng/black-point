@@ -114,8 +114,8 @@ function addTemperatureToMap(temperature) {
 	//console.log('addTemperatureToMap');
 	//console.log(temperature);
 
-	var theme = 'notification-green';
-	var color = '#2ECC71';
+	var theme = 'notification-purple';
+	var color = '#8E44AD';
 
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
@@ -138,7 +138,7 @@ function addTemperatureToMap(temperature) {
 	        temperatures: temperature.temperatures,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-	        'marker-size': 'large',
+	        'marker-size': 'medium',
 	        'marker-color': color,
 	        'marker-symbol': 'marker'
 	    }
