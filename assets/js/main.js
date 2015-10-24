@@ -4,6 +4,7 @@ $(document).ready(function(){
   MP.mapInit();
   MP.sliderInit();
   simulateDownloadActivities();
+  simulateDownloadParkings();
 });
 
 MP.mapInit = function(){
