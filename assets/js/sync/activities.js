@@ -81,8 +81,8 @@ function addActivityToMap(activity) {
 		symbol = 'monument';
         break;
     case "ItinerariosOtrasActividadesAmbientales":
-        theme = 'notification-purple';
-		color = '#8E44AD';
+        theme = 'notification-orange';
+		color = '#D35400';
 		symbol = 'art-gallery';
         break;
     case "Exposiciones":
