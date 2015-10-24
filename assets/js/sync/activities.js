@@ -69,11 +69,43 @@ function addActivitiesToMap(activities) {
 }
 
 function addActivityToMap(activity) {
-	//console.log('addActivityToMap');
-	//console.log(activity);
+	var category = activity.category;
+	var theme;
+	var color;
+	var symbol;
 
-	var theme = 'notification-orange';
-	var color = '#D35400';
+	switch(category) {
+    case "VisitasTuristicas":
+        theme = 'notification-rose';
+		color = '#E74C3C';
+		symbol = 'monument';
+        break;
+    case "ItinerariosOtrasActividadesAmbientales":
+        theme = 'notification-purple';
+		color = '#8E44AD';
+		symbol = 'art-gallery';
+        break;
+    case "Exposiciones":
+        theme = 'notification-turquoise';
+		color = '#1ABC9C';
+		symbol = 'museum';
+        break;
+    case "Conciertos":
+        theme = 'notification-green';
+		color = '#2ECC71';
+		symbol = 'music';
+        break;
+    case "ConferenciasColoquios":
+        theme = 'notification-yellow';
+		color = '#F39C12';
+		symbol = 'place-of-worship';
+        break;
+    default:
+        theme = 'notification-yellow';
+		color = '#F39C12';
+		symbol = 'place-of-worship';
+        break;
+	}
 
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
@@ -95,9 +127,9 @@ function addActivityToMap(activity) {
 	        show: true,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-	        'marker-size': 'large',
+	        'marker-size': 'medium',
 	        'marker-color': color,
-	        'marker-symbol': 'star'
+	        'marker-symbol': symbol
 	    }
 	}).addTo(MP.map));
 }

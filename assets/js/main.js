@@ -6,7 +6,7 @@ $(document).ready(function(){
   MP.sliderInit();
   MP.setDefaultDate();
   simulateDownloadActivities();
-  simulateDownloadParkings();
+  //simulateDownloadParkings();
   simulateTemperatures();
 });
 
