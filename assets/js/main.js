@@ -93,4 +93,5 @@ MP.sliderInit = function(){
 
 MP.setDefaultDate = function(){
   $("#date-input").val(moment().format("YYYY-MM-DD"));
+  MP.date = moment().format("YYYY-MM-DD");
 };
