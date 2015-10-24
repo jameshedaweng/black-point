@@ -21,7 +21,6 @@ function getDataActivities(url) {
 	console.log('getDataActivities');
 
 	$.get(url, function(data) {
-		console.log('success!!');
 		parseActivities(data);
 	});
 }

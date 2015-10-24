@@ -21,7 +21,6 @@ function getDataParkings(url) {
 	console.log('getDataParkings');
 
 	$.get(url, function(data) {
-		console.log('success!!');
 		parseParkings(data);
 	});
 }

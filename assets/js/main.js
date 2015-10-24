@@ -6,6 +6,7 @@ $(document).ready(function(){
   MP.sliderInit();
   simulateDownloadActivities();
   simulateDownloadParkings();
+  simulateTemperatures();
 });
 
 MP.loadSplash = function(){
@@ -34,8 +35,6 @@ MP.mapInit = function(){
 			    	//console.log(layer.feature);
 
 			    	var prop = layer.feature.properties;
-
-			    	console.log(prop);
 
 			    	var newNotification = '<div class="notification ' + prop.theme + '">';
 			    	newNotification += prop.title;
