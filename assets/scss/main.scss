@@ -17,7 +17,7 @@ html, body{
 }
 
 .splash{
-  display: block;
+  display: none;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -94,59 +94,92 @@ html, body{
       #actions{
         position: absolute;
         z-index: 1000;
-        background-color: rgba($bgWhite, 0.8);
-        -webkit-backdrop-filter: blur(10px);
         width: 100%;
-        height: 200px;
-        border-top: 1px solid $lineGray;
+        height: 70px;
         left: 0px;
         bottom: 0px;
-        #slider-container{
-          width: 100%;
-          height: 50px;
-          padding: 35px;
-          border-bottom: 1px solid $lineGray;
-          #slider{
-            height: 5px;
-            border: none;
-            border-radius: 5px;
-            background: $slider;
-            .ui-slider-handle{
-              width: 15px;
-              height: 15px;
-              border-radius: 8px;
-              background-color: $bgWhite;
-              border-color: $blueTheme;
-              &.ui-state-focus, &:hover{
-                outline: none;
+        display: flex;
+        border-top: 1px solid $lineGray;
+        .action-item{
+          .action-container{
+            background-color: rgba($bgWhite, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            height: 70px;
+          }
+          &#date-item{
+            width: 30%;
+            #date-container{
+              padding: 20px 0px 20px 35px;
+              span{
+                width: 30%;
+                color: $textMiddleGray;
+                vertical-align: middle;
+              }
+              input{
+                width: 65%;
+                margin-left: 5%;
+                height: 30px;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-bottom: 1px solid $lineGray;
+                border-radius: 0px;
+                background: none;
+                color: $blueTheme;
                 -webkit-appearance: none;
-                background: linear-gradient($blueTheme, darken($blueTheme, 10%));
-                border-color: $blueTheme;
+                vertical-align: middle;
               }
             }
           }
-          #slider-text{
-            width: 100%;
-            text-align: center;
-            margin: 5px 0px;
-            color: $textMiddleGray;
-            #slider-text-left{
-              float: left;
-            }
-            #slider-text-right{
-              float: right;
+          &#slider-item{
+            width: 70%;
+            #slider-container{
+              width: 100%;
+              height: 50px;
+              padding: 35px;
+              #slider{
+                height: 5px;
+                border: none;
+                border-radius: 5px;
+                background: $slider;
+                .ui-slider-handle{
+                  width: 15px;
+                  height: 15px;
+                  border-radius: 8px;
+                  background-color: $bgWhite;
+                  border-color: $blueTheme;
+                  &.ui-state-focus, &:hover{
+                    outline: none;
+                    -webkit-appearance: none;
+                    background: linear-gradient($blueTheme, darken($blueTheme, 10%));
+                    border-color: $blueTheme;
+                  }
+                }
+              }
+              #slider-text{
+                width: 100%;
+                text-align: center;
+                margin: 5px 0px;
+                color: $textMiddleGray;
+                #slider-text-left{
+                  float: left;
+                }
+                #slider-text-right{
+                  float: right;
+                }
+              }
+              #slider-label{
+                position: absolute;
+                text-align: center;
+                top: 10px;
+                width: 50px;
+                left: 65%;
+                margin-left:-25px;
+                color: $blueTheme;
+              }
             }
           }
-          #slider-label{
-            position: absolute;
-            text-align: center;
-            top: 10px;
-            width: 50px;
-            left: 50%;
-            margin-left:-25px;
-            color: $blueTheme;
-          }
-        }
+        } 
       }
     }
     &#notification-container{

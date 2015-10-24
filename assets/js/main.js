@@ -4,6 +4,7 @@ $(document).ready(function(){
   MP.loadSplash();
   MP.mapInit();
   MP.sliderInit();
+  MP.setDefaultDate();
   simulateDownloadActivities();
 });
 
@@ -71,4 +72,8 @@ MP.sliderInit = function(){
     }
   });
   $('#slider').draggable();
+};
+
+MP.setDefaultDate = function(){
+  $("#date-input").val(moment().format("YYYY-MM-DD"));
 };
