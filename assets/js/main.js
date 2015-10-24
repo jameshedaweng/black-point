@@ -37,11 +37,18 @@ MP.mapInit = function(){
 
 			    	var prop = layer.feature.properties;
 
-			    	var newNotification = '<div class="notification ' + prop.theme + '">';
-			    	newNotification += prop.title;
-		            newNotification += '</div>';
+			    	if (prop.show) {
 
-		            newText += newNotification;
+			    		if (prop.temperatures === undefined) {
+					    	var newNotification = '<div class="notification ' + prop.theme + '">';
+					    	newNotification += prop.title;
+				            newNotification += '</div>';
+
+				            newText += newNotification;
+			        	} else {
+				    		console.log(prop.temperatures);
+			        	}
+		        	}
 	        	}
 		    });
 		});

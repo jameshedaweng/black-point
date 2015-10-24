@@ -112,7 +112,7 @@ function addTemperaturesToMap(temperatures) {
 
 function addTemperatureToMap(temperature) {
 	//console.log('addTemperatureToMap');
-	console.log(temperature);
+	//console.log(temperature);
 
 	var theme = 'notification-green';
 	var color = '#2ECC71';
@@ -134,6 +134,8 @@ function addTemperatureToMap(temperature) {
 	        title: temperature.title,
 	        theme: theme,
 	        color: color,
+	        show: true,
+	        temperatures: temperature.temperatures,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'large',
