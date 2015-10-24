@@ -7,25 +7,31 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Magicpoint</a>
+          <a class="navbar-brand" href="#">magicpoint.</a>
         </div>
       </div>
     </nav>
     <section id="main-section">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-8" id="map-container">
+          <div class="col-md-8 side-panel" id="map-container">
+            <div id="map">
+            </div>
+            <div id="actions">
+            </div>
           </div>
-          <div class="col-md-4" id="notification-container">
+          <div class="col-md-4 side-panel" id="notification-container">
           </div>
         </div>
       </div>
