@@ -41,21 +41,28 @@ function addActivitiesToMap(activities) {
 	console.log('addActivitiesToMap');
 	console.log(activities);
 
+	var cont = 0;
 	activities.each(function(){
         var $activity = $(this); 
         var newActivity = {
         	title: $activity.find("title").text(),
+        	category: $activity.find("category").attr("term"),
         	lat: parseFloat($activity.find("lat").text()),
         	lon: parseFloat($activity.find("long").text())
         }
 
-        addActivityToMap(newActivity);
+        // Parse category
+        if (newActivity.category != undefined) {
+	        newActivity.category = newActivity.category.substr(newActivity.category.lastIndexOf("/")+1, newActivity.category.length);
+
+	        addActivityToMap(newActivity);
+    	}
     });
 }
 
 function addActivityToMap(activity) {
 	//console.log('addActivityToMap');
-	//console.log(activity);
+	console.log(activity);
 
 	L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
@@ -79,6 +86,5 @@ function addActivityToMap(activity) {
 	        'marker-symbol': 'star'
 	    }
 	}).addTo(MP.map);
-
 }
 
