@@ -87,6 +87,17 @@ html, body{
             color: $textGray;
           }
         }
+        .leaflet-popup-content-wrapper{
+          .leaflet-popup-content{
+            border-radius: 5px;
+            color: $textGray;
+            font-family: "Montserrat";
+            text-align: center;
+            .marker-title{
+              font-weight: 400;
+            }
+          }
+        }
         .leaflet-bottom{
           display: none;
         }
