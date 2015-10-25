@@ -57,7 +57,7 @@ function getDataTemperature() {
 	var day;
 	var hour;
 	var temperature = Math.floor((Math.random() * 30) -10); // initial [-10 : 20]
-	for (month=11; month<=12; month++) {
+	for (month=10; month<=12; month++) {
 		for (day=1; day<=31; day++) {
 			for (hour=0; hour<24; hour++) {
 				temperature = generateTemperature(temperature);
@@ -146,10 +146,34 @@ function addTemperatureToMap(temperature) {
 }
 
 function generateTemperatureNotifications(temperatures) {
-	console.log(MP.date);
-	console.log(MP.hour);
+	var notificationStr = "";
 
-	return "";
+	// 2015-10-24
+	var date = MP.date;
+	var year = 2015;
+	var month = parseInt(date.substr(date.indexOf('-')+1, 2));
+	var day = parseInt(date.substr(date.lastIndexOf('-')+1, 2));
+	var hour = MP.hour;
+
+	var i;
+	var size = temperatures.length;
+	for (i=0; i<size; i++) {
+		var temp = temperatures[i];
+		//console.log(JSON.stringify(temp) + ' - ' + year + ' ' + month + ' ' + day + ' ' + hour);
+
+		if (temp.year == year && temp.month == month && temp.day == day && temp.hour == hour) {
+			if (temp.value < 0) {
+				notificationStr += '<div class="notification notification-yellow"><i class="';
+                notificationStr += 'bi_interface-places';
+                notificationStr += '"></i>';
+                notificationStr += '<span>';
+		    	notificationStr += 'Mantita y sofá';
+	            notificationStr += '</span></div>';
+			}
+		}
+	}
+
+	return notificationStr;
 }
 
 

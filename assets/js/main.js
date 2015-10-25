@@ -39,9 +39,12 @@ MP.mapInit = function(){
 
 			    	if (prop.show) {
 			    		if (prop.temperatures === undefined) {
-					    	var newNotification = '<div class="notification ' + prop.theme + '">';
+					    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
+		                    newNotification += prop.glyph;
+		                    newNotification += '"></i>';
+		                    newNotification += '<span>';
 					    	newNotification += prop.title;
-				            newNotification += '</div>';
+				            newNotification += '</span></div>';
 
 				            newText += newNotification;
 			        	} else {
@@ -89,6 +92,7 @@ MP.sliderInit = function(){
     }
   });
   $('#slider').draggable();
+  MP.hour = moment().format("HH");
 };
 
 MP.setDefaultDate = function(){

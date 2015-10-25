@@ -57,7 +57,7 @@ function addParkingToMap(parking) {
 	//console.log(parking);
 
 	var theme = 'notification-blue';
-	var color = '#3498DB'; // blueTheme
+	var color = '#5DADE2'; // blueTheme
 
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
