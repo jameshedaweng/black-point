@@ -42,9 +42,9 @@ MP.mapInit = function(){
 					    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
                     newNotification += prop.glyph;
                     newNotification += '"></i>';
-                    newNotification += '<span>';
+                    newNotification += '<div class="notification-icon">';
 					    	    newNotification += prop.title;
-				            newNotification += '</span></div>';
+				            newNotification += '</div></div>';
 
 				            newText += newNotification;
 			        	} else {
@@ -66,20 +66,22 @@ MP.mapInit = function(){
 };
 
 MP.sliderInit = function(){
-  $("#slider-label").html(moment().format("HH:mm"));
-  $("#current-time").html(moment().format("HH:mm"));
+  $("#slider-label").html(moment().format("HH:00"));
+  $("#current-time").html(moment().format("HH:00"));
+  $("#slider-label").css("left", 15 + (moment().hour())/24*100 + "%");
+  $("#slider-label").css("margin-left", -25);
   $("#slider").slider({
     animate: "fast",
-    max: 720,
-    min: -720,
+    max: 24,
+    min: 0,
     step: 1,
-    value: 0,
+    value: moment().hour(),
     slide: function(event, ui) {
       var delay = function() {
         var handleIndex = $(ui.handle).data('index.uiSliderHandle');
         var label = "#slider-label";
-        var time = moment().add(ui.value, 'minute').format("HH:mm");
-        MP.hour = moment().add(ui.value, 'minute').format("HH");
+        var time = moment().startOf('day').add(ui.value, 'hour').format("HH:mm");
+        MP.hour = moment().startOf('day').add(ui.value, 'hour').format("HH");
         $(label).html(time).position({
           my: 'center bottom',
           at: 'center top',
@@ -97,4 +99,8 @@ MP.sliderInit = function(){
 MP.setDefaultDate = function(){
   $("#date-input").val(moment().format("YYYY-MM-DD"));
   MP.date = moment().format("YYYY-MM-DD");
+  $("#current-date").html(moment().format("MMM Do, YYYY"));
+  $("#date-input").change(function(){
+    $("#current-date").html(moment($("#date-input").val()).format("MMM Do, YYYY"));
+  });
 };
