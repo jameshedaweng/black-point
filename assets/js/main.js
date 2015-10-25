@@ -35,30 +35,12 @@ MP.refreshNotifications = function() {
 				    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
 	                    newNotification += prop.glyph;
 	                    newNotification += '"></i>';
-	                    newNotification += '<span>';
+	                    newNotification += '<div class="notification-icon">';
 				    	newNotification += prop.title;
-			            newNotification += '</span></div>';
-
-<<<<<<< HEAD
+			            newNotification += '</div></div>';
 			            newNotificationText += newNotification;
 		        	} else {
 		        		newRecText += generateTemperatureNotifications(prop.title, prop.temperatures);
-=======
-			    	var prop = layer.feature.properties;
-
-			    	if (prop.show) {
-			    		if (prop.temperatures === undefined) {
-					    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
-                    newNotification += prop.glyph;
-                    newNotification += '"></i>';
-                    newNotification += '<div class="notification-icon">';
-					    	    newNotification += prop.title;
-				            newNotification += '</div></div>';
-				            newNotificationText += newNotification;
-			        	} else {
-			        		newRecText += generateTemperatureNotifications(prop.temperatures);
-			        	}
->>>>>>> e69e0967df88f3f70eb7cd733d9f74850fe03f77
 		        	}
 	        	}
         	}
