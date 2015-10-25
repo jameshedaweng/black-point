@@ -50,17 +50,46 @@ function addActivitiesToMap(activities) {
         	lon: parseFloat($activity.find("long").text())
         }
 
+        // Parse day
+        var novDay = 0;
         var novPos = newActivity.title.indexOf(' de noviembre');
-        if (novPos == -1)
+        if (novPos == -1) {
         	novPos = newActivity.content.indexOf(' de noviembre');
+        	if (novPos != -1) {
+        		novDay = parseInt(newActivity.content.substr(novPos-2, 2));
+        	}
+        } else {
+        	novDay = parseInt(newActivity.title.substr(novPos-2, 2));
+        }
+        var decDay = 0;
         var dicPos = newActivity.title.indexOf(' de diciembre');
-        if (dicPos == -1)
+        if (dicPos == -1) {
         	dicPos = newActivity.content.indexOf(' de diciembre');
+        	if (dicPos != -1) {
+        		decDay = parseInt(newActivity.content.substr(dicPos-2, 2));
+        	}
+        } else {
+        	decDay = parseInt(newActivity.title.substr(dicPos-2, 2));
+        }
+
+        //console.log('novDay: ' + novDay);
+        //console.log('decDay: ' + decDay);
 
         // Parse category
         if (novPos != -1 || dicPos != -1) {
 	        if (newActivity.category != undefined) {
 		        newActivity.category = newActivity.category.substr(newActivity.category.lastIndexOf("/")+1, newActivity.category.length);
+
+		        // Add date
+		        if (novDay != 0) {
+		        	newActivity.day = novDay;
+		        	newActivity.month = 11;
+		        	newActivity.year = 2015;
+		        } else if (decDay != 0) {
+		        	newActivity.day = decDay;
+		        	newActivity.month = 12;
+		        	newActivity.year = 2015;
+		        }
 
 		        addActivityToMap(newActivity);
 	    	}
@@ -133,6 +162,11 @@ function addActivityToMap(activity) {
 	        glyph: glyph,
 	        color: color,
 	        show: true,
+	        date: {
+	        	year: activity.year,
+	        	month: activity.month,
+	        	day: activity.day
+	        },
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'medium',
