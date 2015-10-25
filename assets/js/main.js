@@ -39,9 +39,12 @@ MP.mapInit = function(){
 
 			    	if (prop.show) {
 			    		if (prop.temperatures === undefined) {
-					    	var newNotification = '<div class="notification ' + prop.theme + '">';
-					    	newNotification += prop.title;
-				            newNotification += '</div>';
+					    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
+                    newNotification += prop.glyph;
+                    newNotification += '"></i>';
+                    newNotification += '<span>';
+					    	    newNotification += prop.title;
+				            newNotification += '</span></div>';
 
 				            newText += newNotification;
 			        	} else {
