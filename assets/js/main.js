@@ -36,7 +36,7 @@ MP.refreshNotifications = function() {
 		    		if (prop.temperatures === undefined) {
 		    			// Check day
 		    			var showActivity = true;
-		    			if (prop.date !== undefined) {
+		    			/*if (prop.date !== undefined) {
 		    				if (prop.date.day !== undefined) {
 		    					// Has date
 		    					var year = MP.date.format("YYYY");
@@ -46,7 +46,7 @@ MP.refreshNotifications = function() {
 		    						showActivity = false;
 		    					}
 		    				}
-		    			}
+		    			}*/
 
 		    			if (showActivity) {
 							var newNotification = '<div class="notification ' + prop.theme + '"><i class="';

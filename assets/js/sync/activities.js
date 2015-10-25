@@ -95,6 +95,8 @@ function addActivitiesToMap(activities) {
 	    	}
 	    }
     });
+
+	MP.refreshNotifications();
 }
 
 function addActivityToMap(activity) {
