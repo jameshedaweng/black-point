@@ -28,7 +28,8 @@ MP.mapInit = function(){
 	    // Get the map bounds - the top-left and bottom-right locations.
 	    var bounds = MP.map.getBounds();
 
-	    var newText = '';
+	    var newRecText = '';
+	    var newNotificationText = '';
 
 	    $.each(MP.layers, function( index, value ) {
 		    value.eachLayer(function(layer) {
@@ -45,24 +46,31 @@ MP.mapInit = function(){
                     newNotification += '<div class="notification-icon">';
 					    	    newNotification += prop.title;
 				            newNotification += '</div></div>';
-
-				            newText += newNotification;
+				            newNotificationText += newNotification;
 			        	} else {
-			        		newText += generateTemperatureNotifications(prop.temperatures);
+			        		newRecText += generateTemperatureNotifications(prop.temperatures);
 			        	}
 		        	}
 	        	}
 		    });
 		});
-    $('.notification').fadeOut(200);
-    setTimeout(function(){
-      $('#notifications').html(newText);
-      setTimeout(function(){
-        $('.notification').fadeIn(200);
-      });
-    }, 200);
-    
-	});
+
+		$('.notification').fadeOut(200);
+		setTimeout(function(){
+			$('#notifications').html(newNotificationText);
+			setTimeout(function(){
+				$('.notification').fadeIn(200);
+			});
+		}, 200);
+
+		$('.now').fadeOut(200);
+		setTimeout(function(){
+			$('#now').html(newRecText);
+			setTimeout(function(){
+				$('.now').fadeIn(200);
+			});
+		}, 200);
+    });
 };
 
 MP.sliderInit = function(){
@@ -94,13 +102,14 @@ MP.sliderInit = function(){
     }
   });
   $('#slider').draggable();
+  MP.hour = moment().format("HH");
 };
 
 MP.setDefaultDate = function(){
   $("#date-input").val(moment().format("YYYY-MM-DD"));
-  MP.date = moment().format("YYYY-MM-DD");
   $("#current-date").html(moment().format("MMM Do, YYYY"));
   $("#date-input").change(function(){
     $("#current-date").html(moment($("#date-input").val()).format("MMM Do, YYYY"));
   });
+  MP.date = moment();
 };
