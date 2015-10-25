@@ -17,6 +17,8 @@ MP.loadSplash = function(){
 };
 
 MP.refreshNotifications = function() {
+	//console.log('refreshNotifications');
+
     // Get the map bounds - the top-left and bottom-right locations.
     var bounds = MP.map.getBounds();
 
@@ -34,13 +36,29 @@ MP.refreshNotifications = function() {
 
 		    	if (prop.show) {
 		    		if (prop.temperatures === undefined) {
-				    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
-	                    newNotification += prop.glyph;
-	                    newNotification += '"></i>';
-	                    newNotification += '<div class="notification-icon">';
-				    	newNotification += prop.title;
-			            newNotification += '</div></div>';
-			            newNotificationText += newNotification;
+		    			// Check day
+		    			var showActivity = true;
+		    			if (prop.date !== undefined) {
+		    				if (prop.date.day !== undefined) {
+		    					// Has date
+		    					var year = MP.date.format("YYYY");
+								var month = MP.date.format("MM");
+								var day = MP.date.format("DD");
+		    					if (prop.date.day != day || prop.date.month != month || prop.date.year != year) {
+		    						showActivity = false;
+		    					}
+		    				}
+		    			}
+
+		    			if (showActivity) {
+							var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
+		                    newNotification += prop.glyph;
+		                    newNotification += '"></i>';
+		                    newNotification += '<div class="notification-icon">';
+					    	newNotification += prop.title;
+				            newNotification += '</div></div>';
+				            newNotificationText += newNotification;
+				        }
 		        	} else {
 		        		newRecText += generateTemperatureNotifications(prop.title, prop.temperatures);
                 dataPointCount++;
@@ -79,6 +97,8 @@ MP.mapInit = function(){
   MP.layers = [];
 
   MP.map.on('move', MP.refreshNotifications);
+
+  MP.refreshNotifications();
 };
 
 MP.sliderInit = function(){
@@ -119,7 +139,10 @@ MP.setDefaultDate = function(){
   $("#current-date").html(moment().format("MMM Do, YYYY"));
   $("#date-input").change(function(){
     $("#current-date").html(moment($("#date-input").val()).format("MMM Do, YYYY"));
+    MP.date = moment($("#date-input").val());
+    MP.refreshNotifications();
   });
   MP.date = moment();
+
   MP.refreshNotifications();
 };
