@@ -57,7 +57,7 @@ function getDataTemperature() {
 	var day;
 	var hour;
 	var temperature = Math.floor((Math.random() * 30) -10); // initial [-10 : 20]
-	for (month=11; month<=12; month++) {
+	for (month=10; month<=12; month++) {
 		for (day=1; day<=31; day++) {
 			for (hour=0; hour<24; hour++) {
 				temperature = generateTemperature(temperature);
@@ -146,8 +146,21 @@ function addTemperatureToMap(temperature) {
 }
 
 function generateTemperatureNotifications(temperatures) {
-	console.log(MP.date);
-	console.log(MP.hour);
+	// 2015-10-24
+	var date = MP.date;
+	var year = 2015;
+	var month = parseInt(date.substr(date.indexOf('-')+1, 2));
+	var day = parseInt(date.substr(date.lastIndexOf('-')+1, 2));
+
+	var i;
+	var size = temperatures.length;
+	for (i=0; i<size; i++) {
+		var temp = temperatures[i];
+
+		if (temp.year == year && temp.month == month && temp.day == day && temp.hour == hour) {
+			console.log('TEMPERATURE: ' + temp.value);
+		}
+	}
 
 	return "";
 }

@@ -89,6 +89,7 @@ MP.sliderInit = function(){
     }
   });
   $('#slider').draggable();
+  MP.hour = moment().format("HH");
 };
 
 MP.setDefaultDate = function(){
