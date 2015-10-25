@@ -73,37 +73,44 @@ function addActivityToMap(activity) {
 	var theme;
 	var color;
 	var symbol;
+	var glyph;
 
 	switch(category) {
     case "VisitasTuristicas":
         theme = 'notification-rose';
 		color = '#E74C3C';
 		symbol = 'monument';
+		glyph = 'bi_interface-places';
         break;
     case "ItinerariosOtrasActividadesAmbientales":
-        theme = 'notification-orange';
-		color = '#D35400';
+        theme = 'notification-blue';
+		color = '#3498DB';
 		symbol = 'art-gallery';
+		glyph = ' bi_environment-mountain-a';
         break;
     case "Exposiciones":
         theme = 'notification-turquoise';
 		color = '#1ABC9C';
 		symbol = 'museum';
+		glyph = 'bi_building-museum';
         break;
     case "Conciertos":
         theme = 'notification-green';
 		color = '#2ECC71';
 		symbol = 'music';
+		glyph = 'bi_music-group-note-a';
         break;
     case "ConferenciasColoquios":
         theme = 'notification-yellow';
 		color = '#F39C12';
 		symbol = 'place-of-worship';
+		glyph = 'bi_doc-book-mark';
         break;
     default:
         theme = 'notification-yellow';
 		color = '#F39C12';
 		symbol = 'place-of-worship';
+		glyph = 'bi_com-bubble-dot';
         break;
 	}
 
@@ -123,13 +130,14 @@ function addActivityToMap(activity) {
 	    properties: {
 	        title: activity.title,
 	        theme: theme,
+	        glyph: glyph,
 	        color: color,
 	        show: true,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'medium',
 	        'marker-color': color,
-	        'marker-symbol': symbol
+	        //'marker-symbol': symbol
 	    }
 	}).addTo(MP.map));
 }

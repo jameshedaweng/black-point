@@ -115,7 +115,7 @@ function addTemperatureToMap(temperature) {
 	//console.log(temperature);
 
 	var theme = 'notification-purple';
-	var color = '#8E44AD';
+	var color = '#A569BD';
 
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
@@ -140,7 +140,7 @@ function addTemperatureToMap(temperature) {
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'medium',
 	        'marker-color': color,
-	        'marker-symbol': 'marker'
+	        //'marker-symbol': 'marker'
 	    }
 	}).addTo(MP.map));
 }
