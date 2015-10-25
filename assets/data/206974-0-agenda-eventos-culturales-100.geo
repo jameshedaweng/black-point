@@ -1275,12 +1275,12 @@
         <geo:long>-3.664855511110751</geo:long>
     </entry>
     <entry>
-        <title>Concierto extraordinario de Navidad. Banda Sinfónica Municipal. 16 de diciembre</title>
+        <title>Concierto extraordinario de Navidad. Banda Sinfónica Municipal.</title>
         <link
             href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=9c7d21a450b4c410VgnVCM1000000b205a0aRCRD"
             rel="alternate" type="text/html"/>
         <id>7950677</id>
-        <content type="html">&lt;p&gt;&lt;a href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=9c7d21a450b4c410VgnVCM1000000b205a0aRCRD" &gt;www.madrid.es&lt;/a&gt;&lt;/p&gt;</content>
+        <content type="html">&lt;p&gt;&lt;a href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=9c7d21a450b4c410VgnVCM1000000b205a0aRCRD" &gt;www.madrid.es&lt;/a&gt;&lt;/p&gt; 16 de diciembre</content>
         <category scheme="$" term="http://datos.madrid.es/egob/kos/actividades/Conciertos"/>
         <georss:point>40.44615938706209 -3.6779448874160314</georss:point>
         <geo:lat>40.44615938706209</geo:lat>
@@ -1419,19 +1419,19 @@
         <geo:long>-3.698601359753866</geo:long>
     </entry>
     <entry>
-        <title>Concierto. Ciclo de Otoño. Banda Sinfónica Municipal. 11 de noviembre</title>
+        <title>Concierto. Ciclo de Otoño. Banda Sinfónica Municipal.</title>
         <link
             href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=59deac2e5fa4c410VgnVCM1000000b205a0aRCRD"
             rel="alternate" type="text/html"/>
         <id>7950654</id>
-        <content type="html">&lt;p&gt;&lt;a href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=59deac2e5fa4c410VgnVCM1000000b205a0aRCRD" &gt;www.madrid.es&lt;/a&gt;&lt;/p&gt;</content>
+        <content type="html">&lt;p&gt;&lt;a href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=59deac2e5fa4c410VgnVCM1000000b205a0aRCRD" &gt;www.madrid.es&lt;/a&gt;&lt;/p&gt; 11 de noviembre</content>
         <category scheme="$" term="http://datos.madrid.es/egob/kos/actividades/Conciertos"/>
         <georss:point>40.41248331678507 -3.6991755805601443</georss:point>
         <geo:lat>40.41248331678507</geo:lat>
         <geo:long>-3.6991755805601443</geo:long>
     </entry>
     <entry>
-        <title>Concierto. Ciclo de Otoño. Banda Sinfónica Municipal. 25 de noviembre</title>
+        <title>Concierto. Ciclo de Otoño. Banda Sinfónica Municipal.</title>
         <link
             href="http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=1ccd566813946010VgnVCM100000dc0ca8c0RCRD&amp;vgnextoid=12f921a450b4c410VgnVCM1000000b205a0aRCRD"
             rel="alternate" type="text/html"/>
