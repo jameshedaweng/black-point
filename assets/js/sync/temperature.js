@@ -167,7 +167,35 @@ function generateTemperatureNotifications(temperatures) {
                 notificationStr += 'bi_interface-places';
                 notificationStr += '"></i>';
                 notificationStr += '<span>';
-		    	notificationStr += 'Mantita y sofá';
+		    	notificationStr += 'mantita y sofá';
+	            notificationStr += '</span></div>';
+			} else if (temp.value <= 10) {
+				notificationStr += '<div class="notification notification-yellow"><i class="';
+                notificationStr += 'bi_interface-places';
+                notificationStr += '"></i>';
+                notificationStr += '<span>';
+		    	notificationStr += 'planes calentitos';
+	            notificationStr += '</span></div>';
+			} else if (temp.value <= 20) {
+				notificationStr += '<div class="notification notification-yellow"><i class="';
+                notificationStr += 'bi_interface-places';
+                notificationStr += '"></i>';
+                notificationStr += '<span>';
+		    	notificationStr += '¡a la calle!';
+	            notificationStr += '</span></div>';
+			} else if (temp.value <= 30) {
+				notificationStr += '<div class="notification notification-yellow"><i class="';
+                notificationStr += 'bi_interface-places';
+                notificationStr += '"></i>';
+                notificationStr += '<span>';
+		    	notificationStr += 'a tu aire';
+	            notificationStr += '</span></div>';
+			} else if (temp.value <= 40) {
+				notificationStr += '<div class="notification notification-yellow"><i class="';
+                notificationStr += 'bi_interface-places';
+                notificationStr += '"></i>';
+                notificationStr += '<span>';
+		    	notificationStr += 'refréscate';
 	            notificationStr += '</span></div>';
 			}
 		}
