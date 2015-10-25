@@ -56,7 +56,7 @@ function getDataTemperature() {
 	var month;
 	var day;
 	var hour;
-	var temperature = Math.floor((Math.random() * 30) -10); // initial [-10 : 20]
+	var temperature = Math.floor((Math.random() * 50) -10); // initial [-10 : 40]
 	for (month=10; month<=12; month++) {
 		for (day=1; day<=31; day++) {
 			for (hour=0; hour<24; hour++) {
@@ -150,9 +150,9 @@ function generateTemperatureNotifications(temperatures) {
 
 	// 2015-10-24
 	var date = MP.date;
-	var year = 2015;
-	var month = parseInt(date.substr(date.indexOf('-')+1, 2));
-	var day = parseInt(date.substr(date.lastIndexOf('-')+1, 2));
+	var year = date.format("YYYY");
+	var month = date.format("MM");
+	var day = date.format("DD");
 	var hour = MP.hour;
 
 	var i;
