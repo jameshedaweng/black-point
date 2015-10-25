@@ -145,7 +145,7 @@ function addTemperatureToMap(temperature) {
 	}).addTo(MP.map));
 }
 
-function generateTemperatureNotifications(temperatures) {
+function generateTemperatureNotifications(title, temperatures) {
 	var notificationStr = "";
 
 	// 2015-10-24
@@ -167,35 +167,40 @@ function generateTemperatureNotifications(temperatures) {
                 notificationStr += 'bi_interface-places';
                 notificationStr += '"></i>';
                 notificationStr += '<span>';
-		    	notificationStr += 'mantita y sofá';
+		    	notificationStr += 'Mantita y sofá';
+		    	notificationStr += '<br>' + title;
 	            notificationStr += '</span></div>';
 			} else if (temp.value <= 10) {
 				notificationStr += '<div class="notification notification-yellow"><i class="';
                 notificationStr += 'bi_interface-places';
                 notificationStr += '"></i>';
                 notificationStr += '<span>';
-		    	notificationStr += 'planes calentitos';
+		    	notificationStr += 'Planes calentitos';
+		    	notificationStr += '<br>' + title;
 	            notificationStr += '</span></div>';
 			} else if (temp.value <= 20) {
 				notificationStr += '<div class="notification notification-yellow"><i class="';
                 notificationStr += 'bi_interface-places';
                 notificationStr += '"></i>';
                 notificationStr += '<span>';
-		    	notificationStr += '¡a la calle!';
+		    	notificationStr += '¡A la calle!';
+		    	notificationStr += '<br>' + title;
 	            notificationStr += '</span></div>';
 			} else if (temp.value <= 30) {
 				notificationStr += '<div class="notification notification-yellow"><i class="';
                 notificationStr += 'bi_interface-places';
                 notificationStr += '"></i>';
                 notificationStr += '<span>';
-		    	notificationStr += 'a tu aire';
+		    	notificationStr += 'A tu aire';
+		    	notificationStr += '<br>' + title;
 	            notificationStr += '</span></div>';
 			} else if (temp.value <= 40) {
 				notificationStr += '<div class="notification notification-yellow"><i class="';
                 notificationStr += 'bi_interface-places';
                 notificationStr += '"></i>';
                 notificationStr += '<span>';
-		    	notificationStr += 'refréscate';
+		    	notificationStr += '¡Refréscate!';
+		    	notificationStr += '<br>' + title;
 	            notificationStr += '</span></div>';
 			}
 		}

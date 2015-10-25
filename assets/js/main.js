@@ -16,6 +16,55 @@ MP.loadSplash = function(){
   }, 2000);
 };
 
+MP.refreshNotifications = function() {
+    // Get the map bounds - the top-left and bottom-right locations.
+    var bounds = MP.map.getBounds();
+
+    var newRecText = '';
+    var newNotificationText = '';
+
+    $.each(MP.layers, function( index, value ) {
+	    value.eachLayer(function(layer) {
+	    	if (bounds.contains(layer.getLatLng())) {
+		    	//console.log(layer.feature);
+
+		    	var prop = layer.feature.properties;
+
+		    	if (prop.show) {
+		    		if (prop.temperatures === undefined) {
+				    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
+	                    newNotification += prop.glyph;
+	                    newNotification += '"></i>';
+	                    newNotification += '<span>';
+				    	newNotification += prop.title;
+			            newNotification += '</span></div>';
+
+			            newNotificationText += newNotification;
+		        	} else {
+		        		newRecText += generateTemperatureNotifications(prop.title, prop.temperatures);
+		        	}
+	        	}
+        	}
+	    });
+	});
+
+	$('.notification').fadeOut(200);
+	setTimeout(function(){
+		$('#notifications').html(newNotificationText);
+		setTimeout(function(){
+			$('.notification').fadeIn(200);
+		});
+	}, 200);
+
+	$('.now').fadeOut(200);
+	setTimeout(function(){
+		$('#now').html(newRecText);
+		setTimeout(function(){
+			$('.now').fadeIn(200);
+		});
+	}, 200);
+};
+
 MP.mapInit = function(){
   L.mapbox.accessToken = 'pk.eyJ1IjoiamFtZXNoZWRhd2VuZyIsImEiOiJxNGxvT1h3In0.q1gGwhVt7lQ7Tji5NV2jUQ';
   MP.map = L.mapbox.map('map', 'jameshedaweng.0b40c805')
@@ -24,54 +73,7 @@ MP.mapInit = function(){
 
   MP.layers = [];
 
-  MP.map.on('move', function() {
-	    // Get the map bounds - the top-left and bottom-right locations.
-	    var bounds = MP.map.getBounds();
-
-	    var newRecText = '';
-	    var newNotificationText = '';
-
-	    $.each(MP.layers, function( index, value ) {
-		    value.eachLayer(function(layer) {
-		    	if (bounds.contains(layer.getLatLng())) {
-			    	//console.log(layer.feature);
-
-			    	var prop = layer.feature.properties;
-
-			    	if (prop.show) {
-			    		if (prop.temperatures === undefined) {
-					    	var newNotification = '<div class="notification ' + prop.theme + '"><i class="';
-		                    newNotification += prop.glyph;
-		                    newNotification += '"></i>';
-		                    newNotification += '<span>';
-					    	newNotification += prop.title;
-				            newNotification += '</span></div>';
-
-				            newNotificationText += newNotification;
-			        	} else {
-			        		newRecText += generateTemperatureNotifications(prop.temperatures);
-			        	}
-		        	}
-	        	}
-		    });
-		});
-
-		$('.notification').fadeOut(200);
-		setTimeout(function(){
-			$('#notifications').html(newNotificationText);
-			setTimeout(function(){
-				$('.notification').fadeIn(200);
-			});
-		}, 200);
-
-		$('.now').fadeOut(200);
-		setTimeout(function(){
-			$('#now').html(newRecText);
-			setTimeout(function(){
-				$('.now').fadeIn(200);
-			});
-		}, 200);
-    });
+  MP.map.on('move', MP.refreshNotifications);
 };
 
 MP.sliderInit = function(){
@@ -98,6 +100,7 @@ MP.sliderInit = function(){
         $("#current-time").html(time);
       };
       setTimeout(delay, 5);
+      MP.refreshNotifications();
     }
   });
   $('#slider').draggable();
@@ -107,4 +110,5 @@ MP.sliderInit = function(){
 MP.setDefaultDate = function(){
   $("#date-input").val(moment().format("YYYY-MM-DD"));
   MP.date = moment();
+  MP.refreshNotifications();
 };
