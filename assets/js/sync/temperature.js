@@ -166,30 +166,35 @@ function generateTemperatureNotifications(title, temperatures) {
 			if (temp.value < 0) {
 				notificationStr += '<div class="notification notification-blue">';
                 notificationStr += '<div>';
+                notificationStr += temp.value + 'ºC - ';
 		    	notificationStr += 'Mantita y sofá';
 		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
 	            notificationStr += '</div></div>';
 			} else if (temp.value <= 10) {
-				notificationStr += '<div class="notification notification-rose">';
+				notificationStr += '<div class="notification notification-orange">';
                 notificationStr += '<div>';
+                notificationStr += temp.value + 'ºC - ';
 		    	notificationStr += 'Planes calentitos';
 		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
 	            notificationStr += '</div></div>';
 			} else if (temp.value <= 20) {
 				notificationStr += '<div class="notification notification-green">';
                 notificationStr += '<div>';
+                notificationStr += temp.value + 'ºC - ';
 		    	notificationStr += '¡A la calle!';
 		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
 	            notificationStr += '</div></div>';
 			} else if (temp.value <= 30) {
 				notificationStr += '<div class="notification notification-green">';
                 notificationStr += '<div>';
+                notificationStr += temp.value + 'ºC - ';
 		    	notificationStr += 'A tu aire';
 		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
 	            notificationStr += '</div></div>';
 			} else if (temp.value <= 40) {
 				notificationStr += '<div class="notification notification-blue">';
                 notificationStr += '<div>';
+                notificationStr += temp.value + 'ºC - ';
 		    	notificationStr += '¡Refréscate!';
 		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
 	            notificationStr += '</div></div>';
