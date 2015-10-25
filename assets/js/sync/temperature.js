@@ -138,7 +138,7 @@ function addTemperatureToMap(temperature) {
 	        temperatures: temperature.temperatures,
 	        // one can customize markers by adding simplestyle properties
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-	        'marker-size': 'medium',
+	        'marker-size': 'small',
 	        'marker-color': color,
 	        'marker-symbol': 'marker'
 	    }
@@ -160,48 +160,39 @@ function generateTemperatureNotifications(title, temperatures) {
 	for (i=0; i<size; i++) {
 		var temp = temperatures[i];
 		//console.log(JSON.stringify(temp) + ' - ' + year + ' ' + month + ' ' + day + ' ' + hour);
+		$("#current-temp").html(temp.value + "º");
 
 		if (temp.year == year && temp.month == month && temp.day == day && temp.hour == hour) {
 			if (temp.value < 0) {
-				notificationStr += '<div class="notification notification-yellow"><i class="';
-                notificationStr += 'bi_interface-places';
-                notificationStr += '"></i>';
-                notificationStr += '<span>';
+				notificationStr += '<div class="notification notification-blue">';
+                notificationStr += '<div>';
 		    	notificationStr += 'Mantita y sofá';
-		    	notificationStr += '<br>' + title;
-	            notificationStr += '</span></div>';
+		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
+	            notificationStr += '</div></div>';
 			} else if (temp.value <= 10) {
-				notificationStr += '<div class="notification notification-yellow"><i class="';
-                notificationStr += 'bi_interface-places';
-                notificationStr += '"></i>';
-                notificationStr += '<span>';
+				notificationStr += '<div class="notification notification-rose">';
+                notificationStr += '<div>';
 		    	notificationStr += 'Planes calentitos';
-		    	notificationStr += '<br>' + title;
-	            notificationStr += '</span></div>';
+		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
+	            notificationStr += '</div></div>';
 			} else if (temp.value <= 20) {
-				notificationStr += '<div class="notification notification-yellow"><i class="';
-                notificationStr += 'bi_interface-places';
-                notificationStr += '"></i>';
-                notificationStr += '<span>';
+				notificationStr += '<div class="notification notification-green">';
+                notificationStr += '<div>';
 		    	notificationStr += '¡A la calle!';
-		    	notificationStr += '<br>' + title;
-	            notificationStr += '</span></div>';
+		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
+	            notificationStr += '</div></div>';
 			} else if (temp.value <= 30) {
-				notificationStr += '<div class="notification notification-yellow"><i class="';
-                notificationStr += 'bi_interface-places';
-                notificationStr += '"></i>';
-                notificationStr += '<span>';
+				notificationStr += '<div class="notification notification-green">';
+                notificationStr += '<div>';
 		    	notificationStr += 'A tu aire';
-		    	notificationStr += '<br>' + title;
-	            notificationStr += '</span></div>';
+		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
+	            notificationStr += '</div></div>';
 			} else if (temp.value <= 40) {
-				notificationStr += '<div class="notification notification-yellow"><i class="';
-                notificationStr += 'bi_interface-places';
-                notificationStr += '"></i>';
-                notificationStr += '<span>';
+				notificationStr += '<div class="notification notification-blue">';
+                notificationStr += '<div>';
 		    	notificationStr += '¡Refréscate!';
-		    	notificationStr += '<br>' + title;
-	            notificationStr += '</span></div>';
+		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
+	            notificationStr += '</div></div>';
 			}
 		}
 	}

@@ -25,6 +25,8 @@ MP.refreshNotifications = function() {
     var newRecText = '';
     var newNotificationText = '';
 
+    var dataPointCount = 0;
+
     $.each(MP.layers, function( index, value ) {
 	    value.eachLayer(function(layer) {
 	    	if (bounds.contains(layer.getLatLng())) {
@@ -59,9 +61,13 @@ MP.refreshNotifications = function() {
 				        }
 		        	} else {
 		        		newRecText += generateTemperatureNotifications(prop.title, prop.temperatures);
+                dataPointCount++;
 		        	}
 	        	}
         	}
+          if(dataPointCount == 1){
+            $("#now").addClass("notification-one");
+          }
 	    });
 	});
 
