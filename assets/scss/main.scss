@@ -214,19 +214,22 @@ html, body{
         line-height: 40px;
         font-weight: 200;
         #current-date{
+          height: 40px;
+          line-height: 40px;
           display: inline-block;
         }
         #current-time{
-          display: inline-block;
           font-weight: 400;
-          padding-left: 5px;
+          height: 40px;
+          line-height: 40px;
+          display: inline-block;
         }
       }
       #notifications{
         width: 100%;
         height: 100vh;
         overflow: auto;
-        padding: 340px 15px 15px 15px;
+        padding: 180px 15px 15px 15px;
         -webkit-overflow-scrolling: touch;
         -webkit-transform: translate3d(0, 0, 0);
         .notification{
@@ -275,13 +278,62 @@ html, body{
       #now{
         position: absolute;
         z-index: 1000;
-        background-color: rgba($bgWhite, 0.8);
+        background-color: rgba($bgLightGray, 0.8);
         -webkit-backdrop-filter: blur(10px);
         width: 100%;
-        height: 240px;
+        height: 80px;
         border-bottom: 1px solid $lineGray;
         left: 0px;
-        top: 100px; 
+        top: 100px;
+        overflow: hidden;
+        display: flex;
+        .notification{
+          border: none;
+          position: relative;
+          padding: 15px 5px;
+          height: 80px;
+          width: 50%;
+          text-align: center;
+          line-height: 25px;
+          i{
+            margin-right: 5px;
+          }
+          div{
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.place{
+              font-size: 12px;
+            }
+          }
+          &.notification-rose{
+            color:$roseTheme;
+          }
+          &.notification-purple{
+            color:$purpleTheme;
+          }
+          &.notification-blue{
+            color:$blueTheme;
+          }
+          &.notification-turquoise{
+            color:$turquoiseTheme;
+          }
+          &.notification-green{
+            color:$greenTheme;
+          }
+          &.notification-yellow{
+            color:$yellowTheme;
+          }
+          &.notification-orange{
+            color:$orangeTheme;
+          }
+        }
+        &.notification-one{
+          .notification{
+            width: 100%;
+          }
+        }
       }
     }
   }
