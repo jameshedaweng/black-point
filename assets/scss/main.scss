@@ -307,6 +307,9 @@ html, body{
               font-size: 12px;
             }
           }
+          &:first-of-type{
+            border-right: 1px solid $lineGray;
+          }
           &.notification-rose{
             color:$roseTheme;
           }
