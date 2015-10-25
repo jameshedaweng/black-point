@@ -115,7 +115,7 @@ function addTemperatureToMap(temperature) {
 	//console.log(temperature);
 
 	var theme = 'notification-purple';
-	var color = '#A569BD';
+	var color = '#8E44AD';
 
 	MP.layers.push(L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
@@ -140,29 +140,40 @@ function addTemperatureToMap(temperature) {
 	        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
 	        'marker-size': 'medium',
 	        'marker-color': color,
-	        //'marker-symbol': 'marker'
+	        'marker-symbol': 'marker'
 	    }
 	}).addTo(MP.map));
 }
 
 function generateTemperatureNotifications(temperatures) {
+	var notificationStr = "";
+
 	// 2015-10-24
 	var date = MP.date;
 	var year = 2015;
 	var month = parseInt(date.substr(date.indexOf('-')+1, 2));
 	var day = parseInt(date.substr(date.lastIndexOf('-')+1, 2));
+	var hour = MP.hour;
 
 	var i;
 	var size = temperatures.length;
 	for (i=0; i<size; i++) {
 		var temp = temperatures[i];
+		//console.log(JSON.stringify(temp) + ' - ' + year + ' ' + month + ' ' + day + ' ' + hour);
 
 		if (temp.year == year && temp.month == month && temp.day == day && temp.hour == hour) {
-			console.log('TEMPERATURE: ' + temp.value);
+			if (temp.value < 0) {
+				notificationStr += '<div class="notification notification-yellow"><i class="';
+                notificationStr += 'bi_interface-places';
+                notificationStr += '"></i>';
+                notificationStr += '<span>';
+		    	notificationStr += 'Mantita y sofá';
+	            notificationStr += '</span></div>';
+			}
 		}
 	}
 
-	return "";
+	return notificationStr;
 }
 
 
