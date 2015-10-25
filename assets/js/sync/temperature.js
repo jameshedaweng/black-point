@@ -145,3 +145,23 @@ function addTemperatureToMap(temperature) {
 	}).addTo(MP.map));
 }
 
+function generateTemperatureNotifications(temperatures) {
+	console.log(MP.date);
+	console.log(MP.hour);
+
+	return "";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
