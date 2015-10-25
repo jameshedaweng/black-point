@@ -171,7 +171,7 @@ function generateTemperatureNotifications(title, temperatures) {
 		    	notificationStr += '</div><div class="place"><i class="bi_interface-places"></i>' + title;
 	            notificationStr += '</div></div>';
 			} else if (temp.value <= 10) {
-				notificationStr += '<div class="notification notification-orange">';
+				notificationStr += '<div class="notification notification-rose">';
                 notificationStr += '<div>';
                 notificationStr += temp.value + 'ºC - ';
 		    	notificationStr += 'Planes calentitos';
