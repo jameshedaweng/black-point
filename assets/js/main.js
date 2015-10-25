@@ -102,7 +102,7 @@ MP.mapInit = function(){
 };
 
 MP.sliderInit = function(){
-  $("#slider-label").html(moment().format("HH:00"));
+  //$("#slider-label").html(moment().format("HH:00"));
   $("#current-time").html(moment().format("HH:00"));
   $("#slider-label").css("left", 15 + (moment().hour())/24*100 + "%");
   $("#slider-label").css("margin-left", -25);
