@@ -286,13 +286,12 @@ html, body{
         left: 0px;
         top: 100px;
         overflow: hidden;
-        display: flex;
         .notification{
           border: none;
           position: relative;
           padding: 15px 5px;
           height: 80px;
-          width: 50%;
+          width: 45%;
           text-align: center;
           line-height: 25px;
           i{
@@ -307,9 +306,9 @@ html, body{
               font-size: 12px;
             }
           }
-          &:first-of-type{
-            border-right: 1px solid $lineGray;
-          }
+          // &:first-of-type{
+          //   border-right: 1px solid $lineGray;
+          // }
           &.notification-rose{
             color:$roseTheme;
           }
